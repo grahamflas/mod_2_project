@@ -1,0 +1,16 @@
+<h1>Details for <%= @user.name %></h1>
+
+<h2>Total Distance Run: <%= "#{@user.total_distance} Miles"%></h2>
+<h2>Total Time Run: <%= "#{@user.total_time_run} Minutes"%></h2>
+<h2>Average Pace: <%= @user.average_pace%></h2>
+<h2>Number of Sessions: <%= "#{@user.sessions.count} Practice Sessions"%></h2>
+
+<h2><%= @user.name %>'s Sessions</h2>
+
+<ul>
+  <% @user.sessions.each do |session| %>
+    <li><%= link_to "#{session.start_time.strftime("%A, %B %d, %Y")} beginning at #{session.start_time.strftime("%I:%M%p")}", session_path(session) %></li>
+  <% end %>
+</ul>
+
+<%= link_to "Create a new session", new_session_path %>

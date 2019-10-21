@@ -1,0 +1,6 @@
+<h1>Create a new session</h1>
+
+<%= form_for @session do |f| %>
+  <%= f.label :start_time %>
+  <%= f.datetime_select :start_time %>
+<% end %>

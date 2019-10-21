@@ -1,0 +1,11 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  start_time: 2019-10-21 13:43:47
+  end_time: 2019-10-21 13:43:47
+  distance: 1.5
+
+two:
+  start_time: 2019-10-21 13:43:47
+  end_time: 2019-10-21 13:43:47
+  distance: 1.5
