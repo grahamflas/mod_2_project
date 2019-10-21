@@ -3,4 +3,16 @@
 <%= form_for @session do |f| %>
   <%= f.label :start_time %>
   <%= f.datetime_select :start_time %>
+  <br><br>
+  <%= f.label :end_time %>
+  <%= f.datetime_select :end_time %>
+  <br><br>
+  <%= f.label :distance %>
+  <%= f.text_field :distance %>
+  <br><br>
+  <%=f.collection_check_boxes(:users, User.all, :id, :name, { :multiple => true, :size => 5})%> 
+  <%# <%= f.select(:users, User.all, { :prompt => "Please select"}, { :multiple => true, :size => 10 }) %>
+  <%# <%= f.select(:users, User.all, :id, :name, { :prompt => "Please select"}, { :multiple => true, :size => 10 }) %>
+  <%= f.submit %>
+
 <% end %>

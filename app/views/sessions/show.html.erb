@@ -8,3 +8,10 @@
 <h2>Total Duration: <%= @session.duration %></h2>
 <h2>Pace: <%= @session.pace %> minutes per mile</h2>
 
+<h2>People on this Run:</h2>
+<ul>
+  <% @session.runners.each do |runner|%>
+    <li> <%=runner%></li>
+  <%end%>
+</ul>
+

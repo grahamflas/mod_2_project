@@ -11,4 +11,8 @@ class Session < ApplicationRecord
   def pace
     (self.duration / self.distance).round(2)
   end
+
+  def runners
+    self.users.map{|user| user.name}
+  end
 end
