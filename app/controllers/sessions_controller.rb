@@ -17,10 +17,11 @@ class SessionsController < ApplicationController
   end
 
   def create
-    @session = Session.create(session_params)
-    usersession = UsersSession.create(session_id: @session.id, user_id: 1)
+    @session = Session.create(session_params)  ##Add validation to make sure User inputs distance value
+    usersession = UsersSession.create(session_id: @session.id, user: User.find_by(name: "Graham"))
     redirect_to session_path(@session)
   end
+
     
   private
 
