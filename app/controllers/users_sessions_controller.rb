@@ -2,7 +2,6 @@ class UsersSessionsController < ApplicationController
 
   def create
     @user = User.find_by(name: "Graham")
-    byebug
     redirect_to user_path(@user)
   end
 
