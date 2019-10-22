@@ -1,8 +1,9 @@
 class UsersSessionsController < ApplicationController
 
   def create
-    #byebug
-    "Hello"
+    @user = User.find_by(name: "Graham")
+    byebug
+    redirect_to user_path(@user)
   end
 
   private

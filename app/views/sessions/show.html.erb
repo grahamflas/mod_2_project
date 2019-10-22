@@ -7,7 +7,7 @@
 <h2>End Time: <%= @session.end_time.strftime("%I:%M%p") %></h2>
 <h2>Total Duration: <%= @session.duration %></h2>
 <h2>Pace: <%= @session.pace %> per mile</h2>
-<%=link_to "Add Runners to this Session", pick_users_path%> <%#add css to make this a button later%>
+<%=link_to "Add Runners to this Session", pick_users_path, method: :post%> <%#add css to make this a button later%>
 
 <h2>People on this Run:</h2>
 <ul>

@@ -3,5 +3,5 @@ Rails.application.routes.draw do
   resources :sessions, only: [:show, :new, :create]
   resources :users_sessions, only: [:create]
 
-  get '/pick_users', to: 'sessions#pick_users'
+  post '/pick_users', to: 'sessions#pick_users'
 end
