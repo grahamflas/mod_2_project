@@ -19,7 +19,12 @@ class User < ApplicationRecord
     if self.total_distance == 0
       "You have no sessions yet"
     else
-      "#{(self.total_time_run / self.total_distance).round(2)} Minutes per Mile"
+      raw_pace = self.total_time_run / self.total_distance
+
+      minutes = raw_pace.to_i
+      seconds = ((raw_pace % 1) *60).to_i
+
+      formatted_pace = "#{minutes}\'#{seconds}\""
     end
   end
 end

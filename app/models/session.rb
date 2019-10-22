@@ -16,7 +16,12 @@ class Session < ApplicationRecord
   end
 
   def pace
-    (self.duration / self.distance).round(2)
+    raw_pace = self.duration / self.distance
+
+    minutes  = raw_pace.to_i
+    seconds = ((raw_pace % 1) * 60).to_i
+
+    formatted_pace = "#{minutes}\'#{seconds}\""
   end
 
   def runners
