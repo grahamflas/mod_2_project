@@ -1,6 +1,8 @@
 class UsersSessionsController < ApplicationController
 
   def create
+    #byebug
+    "Hello"
   end
 
   private

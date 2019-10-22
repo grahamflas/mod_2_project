@@ -8,6 +8,7 @@
 
 <ul>
   <% @users.each do |user| %>
-    <div><%= link_to user.name, user_path(user) %> <%= button_to "Add Runner to this Session", users_sessions_path%> </div>
+    <%byebug%>
+    <div><%= link_to user.name, user_path(user) %> <%= link_to "Add Runner to this Session", users_sessions_path(user.id), method: :post%> </div>
   <% end %>
 </ul>
