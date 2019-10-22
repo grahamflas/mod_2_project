@@ -9,7 +9,7 @@ class SessionsController < ApplicationController
   end
 
   def pick_users
-    @session = Session.find(params[:id])
+    @session = Session.find(params[:session_id])
     @users = User.all
   end
 

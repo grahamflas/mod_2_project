@@ -1,13 +1,8 @@
 class UsersSessionsController < ApplicationController
 
   def create
-    @user = User.find_by(name: "Graham")
-    redirect_to user_path(@user)
+    UsersSession.create(user_id: params[:user_id], session_id: params[:session_id])
+    redirect_to session_path(params[:session_id])
   end
 
-  private
-
-  def users_sessions_params
-    params.require(:user_session).permit(:user_id, :session_id)
-  end
 end

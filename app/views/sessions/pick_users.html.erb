@@ -8,6 +8,6 @@
 
 <ul>
   <% @users.each do |user| %>
-    <div><%= link_to user.name, user_path(user) %> <%= link_to "Add Runner to this Session", users_sessions_path(user.id), method: :post%> </div>
+    <div><%= link_to user.name, user_path(user) %> <%= link_to "Add Runner to this Session", add_users_path(@session, user)%> </div>
   <% end %>
 </ul>
