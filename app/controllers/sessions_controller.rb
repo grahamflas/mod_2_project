@@ -1,7 +1,15 @@
 class SessionsController < ApplicationController
 
+  def index
+    @sessions = Session.search(params[:search])
+  end
+  
   def show
     @session = Session.find(params[:id])
+  end
+
+  def pick_users
+    @users = User.all
   end
 
   def new
@@ -10,11 +18,7 @@ class SessionsController < ApplicationController
 
   def create
     @session = Session.create(session_params)
-    params[:session][:users].shift
-    #byebug
-    params[:session][:users].each do |user|
-      usersession = UsersSession.create(session_id: @session.id, user_id: user)
-    end
+    usersession = UsersSession.create(session_id: @session.id, user_id: 1)
     redirect_to session_path(@session)
   end
     
@@ -24,7 +28,8 @@ class SessionsController < ApplicationController
     params.require(:session).permit(
       :start_time,
       :end_time,
-      :distance
+      :distance,
+      :search
     )
   end
 
