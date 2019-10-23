@@ -12,7 +12,7 @@
 <h2>People on this Run:</h2>
 <ul>
   <% @session.runners.each do |runner|%>
-    <li> <%= link_to runner, user_path(User.find_by(name: runner))%></li>   ##make this a link to the users show page
+    <li> <%= link_to runner, user_path(User.find_by(name: runner))%></li>
   <%end%>
 </ul>
 

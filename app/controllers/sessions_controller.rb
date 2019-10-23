@@ -10,7 +10,7 @@ class SessionsController < ApplicationController
 
   def pick_users
     @session = Session.find(params[:session_id])
-    @users = User.all
+    @users = User.search(params[:search])
   end
 
   def new
@@ -30,8 +30,7 @@ class SessionsController < ApplicationController
     params.require(:session).permit(
       :start_time,
       :end_time,
-      :distance,
-      :search
+      :distance
     )
   end
 

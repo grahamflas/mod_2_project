@@ -2,6 +2,16 @@ class User < ApplicationRecord
   has_many :users_sessions
   has_many :sessions, through: :users_sessions
 
+
+  def self.search(search)
+    if search
+      clean_name = search.downcase.capitalize
+      user = User.find_by(name: clean_name)
+      return [user]
+    else
+      return User.all
+    end
+  end
   
 
   def total_distance

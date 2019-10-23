@@ -5,13 +5,6 @@ class Session < ApplicationRecord
   ##Add validation to make sure User inputs distance value
 
 
-  def self.search(search)
-    if search
-      user = User.find_by(name: search)
-      return user
-    end
-  end
-
   ## returns duration of session in minutes
   def duration
     (self.end_time - self.start_time) / 60
