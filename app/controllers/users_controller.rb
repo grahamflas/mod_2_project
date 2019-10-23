@@ -20,8 +20,6 @@ class UsersController < ApplicationController
   private
 
   def user_params
-    k = params[:user][:name].titleize
-    params[:user][:name] = k
     params.require(:user).permit(:first_name, :last_name)
   end
 
