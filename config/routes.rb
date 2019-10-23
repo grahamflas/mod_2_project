@@ -8,5 +8,6 @@ Rails.application.routes.draw do
 
   get '/login', to: 'accounts#login'
   post '/login', to: 'accounts#process_login'
+  
   delete '/users_sessions/:user_id/:session_id', to: 'users_sessions#destroy', as: 'users_session'
 end

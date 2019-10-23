@@ -8,6 +8,7 @@ class AccountsController < ApplicationController
 
     if user
       session[:user_id] = user.id
+      redirect_to user_path(user)
     else
       flash.now["notice"] = "No user found with that name"
       render :login
