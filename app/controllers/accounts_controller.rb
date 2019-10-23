@@ -8,7 +8,6 @@ class AccountsController < ApplicationController
 
     if user
       session[:user_id] = user.id
-      byebug
     else
       flash.now["notice"] = "No user found with that name"
       render :login
