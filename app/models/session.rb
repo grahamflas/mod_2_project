@@ -2,6 +2,8 @@ class Session < ApplicationRecord
   has_many :users_sessions
   has_many :users, through: :users_sessions
 
+  ##Add validation to make sure User inputs distance value
+
 
   def self.search(search)
     if search
