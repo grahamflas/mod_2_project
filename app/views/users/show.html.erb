@@ -1,11 +1,11 @@
-<h1>Details for <%= @user.name %></h1>
+<h1>Details for <%= @user.full_name %></h1>
 
 <h2>Total Distance Run: <%= "#{@user.total_distance} Miles"%></h2>
 <h2>Total Time Run: <%= "#{@user.total_time_run} Minutes"%></h2>
 <h2>Average Pace: <%= @user.average_pace%>/ mile</h2>
 <h2>Number of Sessions: <%= "#{@user.sessions.count} Practice Sessions"%></h2>
 
-<h2><%= @user.name %>'s Sessions</h2>
+<h2><%= @user.full_name %>'s Sessions</h2>
 
 <ul>
   <% @user.sessions.each do |session| %>

@@ -2,12 +2,25 @@
 
 <h4>Add Partners to Session:</h4>
    <%= form_tag(pick_users_path(@session), method: :get) do %>
-      <%= text_field_tag(:search, params[:search])%>
-      <%= submit_tag ("Search")%>
-    <%end%>
+      Search By First Name: <%= text_field_tag("search[first_name]")%>
+      <%= submit_tag ("Search")%><br>
+      <%end%>
+    <%= form_tag(pick_users_path(@session), method: :get) do %>
+      Search By Last Name: <%= text_field_tag("search[last_name]")%>
+      <%= submit_tag ("Search")%><br>
+      <%end%>
+    <%= form_tag(pick_users_path(@session), method: :get) do %>
+      Search By Full Name: <%= text_field_tag("search[full_name]")%>
+      <%= submit_tag ("Search")%><br>
+      <%end%>
+    <%= form_tag(pick_users_path(@session), method: :get) do %>
+      Search By Username: <%= text_field_tag("search[username]")%>
+      <%= submit_tag ("Search")%><br>
+      <%end%>
+
 
 <ul>
   <% @users.each do |user| %>
-    <div><%= link_to user.name, user_path(user) %> <%= link_to "Add Runner to this Session", add_users_path(@session, user)%> </div>
+    <div><%= link_to user.full_name, user_path(user) %> <%= link_to "Add Runner to this Session", add_users_path(@session, user)%> </div>
   <% end %>
 </ul>

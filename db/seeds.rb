@@ -2,13 +2,14 @@ User.destroy_all
 Session.destroy_all
 UsersSession.destroy_all
 
-graham = User.create(name: "Graham")
-khaled = User.create(name: "Khaled")
-jenny = User.create(name: "Jenny")
-joseph = User.create(name: "Joseph")
-adam = User.create(name: "Adam")
-paul = User.create(name: "Paul")
-sergio = User.create(name: "Sergio")
+graham = User.create(first_name: "Graham", last_name: "Flaspoehler")
+khaled = User.create(first_name: "Khaled", last_name: "Hassan")
+jenny = User.create(first_name: "Jenny", last_name: "Ingram")
+joseph = User.create(first_name: "Joseph", last_name: "Arias")
+adam = User.create(first_name: "Adam", last_name: "Finch")
+paul = User.create(first_name: "Paul", last_name: "Nicholson")
+sergio = User.create(first_name: "Sergio", last_name: "Perez")
+graham2 = User.create(first_name: "Graham", last_name: "Cracker")
 
 session1 = Session.create(start_time: "2018-01-02 04:57", end_time: "2018-01-02 05:57", distance: 4.2)
 session2 = Session.create(start_time: "2018-01-03 04:50", end_time: "2018-01-03 05:30", distance: 1.2)

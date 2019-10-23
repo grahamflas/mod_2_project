@@ -10,7 +10,13 @@ class SessionsController < ApplicationController
 
   def pick_users
     @session = Session.find(params[:session_id])
-    @users = User.search(params[:search])
+    if params.keys.include?("search")
+      the_key = params[:search].keys.first
+      return @users = User.search(params[:search])
+    else
+      return @users = User.all
+    end
+    byebug
   end
 
   def new
@@ -19,7 +25,7 @@ class SessionsController < ApplicationController
 
   def create
     @session = Session.create(session_params)  ##Add validation to make sure User inputs distance value
-    usersession = UsersSession.create(session_id: @session.id, user: User.find_by(name: "Graham"))
+    usersession = UsersSession.create(session_id: @session.id, user: User.find_by(first_name: "Graham"))
     redirect_to session_path(@session)
   end
 
