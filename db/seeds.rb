@@ -1,6 +1,7 @@
 User.destroy_all
 Session.destroy_all
 UsersSession.destroy_all
+Event.destroy_all
 
 graham = User.create(first_name: "Graham", last_name: "Flaspoehler")
 khaled = User.create(first_name: "Khaled", last_name: "Hassan")
@@ -26,3 +27,6 @@ user_session5 = UsersSession.create(user: adam, session: session2)
 user_session6 = UsersSession.create(user: paul, session: session2)
 user_session7 = UsersSession.create(user: sergio, session: session2)
 user_session8 = UsersSession.create(user: graham, session: session3)
+
+
+boston_marathon = Event.create(name: "Boston Marathon", min_miles_run: 50, distance: 26, min_num_of_sessions: 5)
