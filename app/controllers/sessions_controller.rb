@@ -11,7 +11,6 @@ class SessionsController < ApplicationController
   def pick_users
     @session = Session.find(params[:session_id])
     @users = User.search(params[:search])
-    #byebug
   end
 
   def new
@@ -19,6 +18,7 @@ class SessionsController < ApplicationController
   end
 
   def create
+    byebug
     @session = Session.create(session_params)  ##Add validation to make sure User inputs distance value
     usersession = UsersSession.create(session_id: @session.id, user: User.find_by(name: "Graham"))
     redirect_to session_path(@session)
@@ -31,8 +31,7 @@ class SessionsController < ApplicationController
     params.require(:session).permit(
       :start_time,
       :end_time,
-      :distance,
-      :search
+      :distance
     )
   end
 

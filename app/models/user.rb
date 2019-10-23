@@ -5,7 +5,8 @@ class User < ApplicationRecord
 
   def self.search(search)
     if search
-      user = User.find_by(name: search)
+      clean_name = search.downcase.capitalize
+      user = User.find_by(name: clean_name)
       return [user]
     else
       return User.all
