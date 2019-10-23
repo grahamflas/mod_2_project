@@ -1,5 +1,9 @@
 <h1>Login</h1>
 
+<% if notice %>
+  <%= notice %>
+<% end %>
+
 <%= form_tag '/login' do%>
   <%= label :name, "Name" %>
   <%= text_field_tag :name %>
