@@ -1,12 +1,12 @@
 class AccountsController < ApplicationController
 
-  skip_before_action :require_login, only: [:login, :process_login]
+  
 
   def login
   end
 
   def process_login
-    user = User.find_by(name: params[:name])
+    user = User.find_by(username: params[:username])
 
     if user && user.authenticate(params[:password])
       session[:user_id] = user.id

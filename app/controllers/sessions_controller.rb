@@ -16,7 +16,6 @@ class SessionsController < ApplicationController
     else
       return @users = User.all
     end
-    byebug
   end
 
   def new

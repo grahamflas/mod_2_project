@@ -2,13 +2,13 @@ User.destroy_all
 Session.destroy_all
 UsersSession.destroy_all
 
-graham = User.create(name: "Graham", password: "1111", password_confirmation: "1111")
-khaled = User.create(name: "Khaled", password: "1111", password_confirmation: "1111")
-jenny = User.create(name: "Jenny", password: "1111", password_confirmation: "1111")
-joseph = User.create(name: "Joseph", password: "1111", password_confirmation: "1111")
-adam = User.create(name: "Adam", password: "1111", password_confirmation: "1111")
-paul = User.create(name: "Paul", password: "1111", password_confirmation: "1111")
-sergio = User.create(name: "Sergio", password: "1111", password_confirmation: "1111")
+graham = User.create(first_name: "Graham", last_name: "Flaspoehler", username: "gflaspoehler", password: "1111", password_confirmation: "1111")
+khaled = User.create(first_name: "Khaled", last_name: "Hassan", username: "khassan", password: "1111", password_confirmation: "1111")
+jenny = User.create(first_name: "Jenny", last_name: "Ingram", username: "jingram", password: "1111", password_confirmation: "1111")
+joseph = User.create(first_name: "Joseph", last_name: "Arias", username: "jarias", password: "1111", password_confirmation: "1111")
+adam = User.create(first_name: "Adam", last_name: "Finch", username: "afinch", password: "1111", password_confirmation: "1111")
+paul = User.create(first_name: "Paul", last_name: "Nicholsen", username: "pnicholsen", password: "1111", password_confirmation: "1111")
+sergio = User.create(first_name: "Sergio", last_name: "Perez", username: "sperez", password: "1111", password_confirmation: "1111")
 
 session1 = Session.create(start_time: "2018-01-02 04:57", end_time: "2018-01-02 05:57", distance: 4.2)
 session2 = Session.create(start_time: "2018-01-03 04:50", end_time: "2018-01-03 05:30", distance: 1.2)
