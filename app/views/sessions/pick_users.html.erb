@@ -1,7 +1,7 @@
 <h1>All Users</h1>
 
 <h4>Add Partners to Session:</h4>
-   <%= form_tag(users_path, method: :get) do %>
+   <%= form_tag(pick_users_path(@session), method: :get) do %>
       <%= text_field_tag(:search, params[:search])%>
       <%= submit_tag ("Search")%>
     <%end%>

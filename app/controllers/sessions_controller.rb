@@ -10,7 +10,8 @@ class SessionsController < ApplicationController
 
   def pick_users
     @session = Session.find(params[:session_id])
-    @users = User.all
+    @users = User.search(params[:search])
+    #byebug
   end
 
   def new
