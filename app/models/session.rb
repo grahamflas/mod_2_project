@@ -20,6 +20,6 @@ class Session < ApplicationRecord
   end
 
   def runners
-    self.users.map{|user| user.name}
+    self.users.map{|user| user.first_name}
   end
 end

@@ -5,11 +5,24 @@ class User < ApplicationRecord
   has_secure_password
 
 
+  def full_name
+    self.first_name + " " + self.last_name
+  end
+
   def self.search(search)
     if search
-      clean_name = search.downcase.capitalize
-      user = User.find_by(name: clean_name)
-      return [user]
+      clean_name = search.values.first.downcase.capitalize
+      if search.keys.first == "first_name"
+        user = User.where(first_name: clean_name)
+      elsif search.keys.first == "last_name"
+        user = User.where(last_name: clean_name)
+      elsif search.keys.first == "full_name"
+        names = clean_name.split
+        last = names[1].capitalize
+        user = User.where(first_name: names[0], last_name: last)
+      elsif search.keys.first == "username"
+        user = User.where(username: clean_name)
+      end
     else
       return User.all
     end
