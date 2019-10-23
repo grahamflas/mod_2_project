@@ -2,6 +2,8 @@ class User < ApplicationRecord
   has_many :users_sessions
   has_many :sessions, through: :users_sessions
 
+  has_secure_password
+
 
   def self.search(search)
     if search

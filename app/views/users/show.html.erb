@@ -1,5 +1,7 @@
 <h1>Details for <%= @user.name %></h1>
 
+<%= link_to "Logout", logout_path%>
+
 <h2>Total Distance Run: <%= "#{@user.total_distance} Miles"%></h2>
 <h2>Total Time Run: <%= "#{@user.total_time_run} Minutes"%></h2>
 <h2>Average Pace: <%= @user.average_pace%>/ mile</h2>
