@@ -9,7 +9,7 @@
 
 <ul>
   <% @user.sessions.each do |session| %>
-    <li><%= link_to "#{session.start_time.strftime("%A, %B %d, %Y")} beginning at #{session.start_time.strftime("%I:%M%p")}", session_path(session) %></li>
+    <div><%= link_to "#{session.start_time.strftime("%A, %B %d, %Y")} beginning at #{session.start_time.strftime("%I:%M%p")}", session_path(session) %> <%= link_to "Remove this Session from My Sessions", users_session_path(@user, session), method: :delete%></div>
   <% end %>
 </ul>
 

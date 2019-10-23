@@ -7,4 +7,10 @@ class UsersSessionsController < ApplicationController
     redirect_to session_path(params[:session_id])
   end
 
+  def destroy
+    @user = User.find(params[:user_id])
+    UsersSession.find_by(user_id: params[:user_id], session_id: params[:session_id]).delete
+    redirect_to user_path(@user)
+  end
+
 end
