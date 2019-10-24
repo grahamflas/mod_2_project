@@ -9,8 +9,23 @@
 
 <ul>
   <% @user.sessions.each do |session| %>
-    <div><%= link_to "#{session.start_time.strftime("%A, %B %d, %Y")} beginning at #{session.start_time.strftime("%I:%M%p")}", session_path(session) %> <%= link_to "Remove this Session from My Sessions", users_session_path(@user, session), method: :delete%></div>
+    <div><%= link_to "#{session.start_time.strftime("%A, %B %d, %Y")} beginning at #{session.start_time.strftime("%I:%M%p")}", session_path(session) %> 
+    <%if current_user.id == @user.id%>
+      <%= link_to "Remove this Session from My Sessions", users_session_path(@user, session), method: :delete%>
+    <%end%>
+    </div>
   <% end %>
 </ul>
+<%if current_user.id == @user.id%>
+  <%= link_to "Create a new session", new_session_path %>
+<%end%>
 
-<%= link_to "Create a new session", new_session_path %>
+<h2>Events Eligible For: </h2>
+<%@events.each do |event|%>
+<li><%= link_to event.name, event_path(event)%></li>
+<%end%>
+
+<h2>Events Registered For: </h2>
+<%@registered.each do |event|%>
+<li><%= link_to event.name, event_path(event)%></li>
+<%end%>

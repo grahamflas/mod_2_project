@@ -1,0 +1,26 @@
+<h1>All Events</h1>
+
+<h4>Search for Events By:</h4>
+   <%= form_tag(events_path, method: :get) do %>
+      Name: <%= text_field_tag("search[name]")%>
+      <%= submit_tag ("Search")%><br>
+      <%end%>
+    <%= form_tag(events_path, method: :get) do %>
+      Min. Miles Run Required: <%= text_field_tag("search[min_miles_run]")%>
+      <%= submit_tag ("Search")%><br>
+      <%end%>
+    <%= form_tag(events_path, method: :get) do %>
+      Distance of Event (Maximum): <%= text_field_tag("search[max_distance]")%>
+      <%= submit_tag ("Search")%><br>
+      <%end%>
+    <%= form_tag(events_path, method: :get) do %>
+      Distance of Event (Minimum): <%= text_field_tag("search[min_distance]")%>
+      <%= submit_tag ("Search")%><br>
+      <%end%>
+
+
+<ul>
+    <% @events.each do |event| %>
+        <li><%= link_to event.name, event_path(event)%></li>
+    <%end%>
+</ul>

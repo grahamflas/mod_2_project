@@ -1,0 +1,27 @@
+<h1><%=@event.name%></h1>
+
+<h2>Details of Event:</h2>
+<h4>Location: <%# @event.location%></h4>
+<h4>Date: <%# @event.date%></h4>
+<h4>Distance: <%= @event.distance%> Miles</h4>
+
+
+
+<h2>Minimum Requirements to Qualify:</h2>
+<h4>Minimum Pace: <%=@event.min_pace%></h4>
+<h4>Minimum Number of Practice Sessions: <%=@event.min_num_of_sessions%></h4>
+<h4>Minimum Number of Miles Run: <%=@event.min_miles_run%></h4>
+
+<h2><%= pluralize(@event.users.count, 'Participant')%>: </h2>
+<%@event.users.each do |user|%>
+<%= link_to user.full_name, user_path(user)%>
+<%end%>
+
+
+<% if current_user.events_eligible.include?(@event) || current_user.events_registered.include?(@event)%>
+    <%if @event.users.include?(current_user)%>
+    <%= link_to "Unregister for this Event", unregister_event_path(@event, current_user), method: :delete%>
+    <%else%>
+<%= link_to "Register for this Event", register_event_path(@event, current_user)%>
+<%end%>
+<%end%>

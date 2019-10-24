@@ -10,7 +10,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_10_23_203151) do
+ActiveRecord::Schema.define(version: 2019_10_23_210802) do
+
+  create_table "events", force: :cascade do |t|
+    t.string "name"
+    t.integer "min_pace"
+    t.integer "min_miles_run"
+    t.integer "distance"
+    t.integer "min_num_of_sessions"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
 
   create_table "sessions", force: :cascade do |t|
     t.datetime "start_time"
@@ -23,10 +33,17 @@ ActiveRecord::Schema.define(version: 2019_10_23_203151) do
   create_table "users", force: :cascade do |t|
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.string "password_digest"
     t.string "first_name"
     t.string "last_name"
     t.string "username"
+    t.string "password_digest"
+  end
+
+  create_table "users_events", force: :cascade do |t|
+    t.integer "user_id"
+    t.integer "event_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "users_sessions", force: :cascade do |t|

@@ -9,10 +9,10 @@ class SessionsController < ApplicationController
     @session = Session.find(params[:id])
   end
 
+    ## WHY DOES THIS NOT REQUIRE STRONG PARAMETERS I DON'T UNDERSTAND
   def pick_users
     @session = Session.find(params[:session_id])
     if params.keys.include?("search")
-      the_key = params[:search].keys.first
       return @users = User.search(params[:search])
     else
       return @users = User.all
