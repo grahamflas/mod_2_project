@@ -4,10 +4,11 @@
 
 <div class="row">
   <div class="container user_stats">
-    <h2>Total Distance Run: <%= "#{@user.total_distance} Miles"%></h2>
-    <h2>Total Time Run: <%= @user.display_total_duration%></h2>
-    <h2>Average Pace: <%= @user.average_pace%>/ mile</h2>
-    <h2>Number of Sessions: <%= "#{@user.sessions.count} Practice Sessions"%></h2>
+    <h2>Stats</h2>
+    <h4>Total Distance Run: <%= "#{@user.total_distance} Miles"%></h4>
+    <h4>Total Time Run: <%= @user.display_total_duration%></h4>
+    <h4>Average Pace: <%= @user.average_pace%>/ mile</h4>
+    <h4>Number of Sessions: <%= "#{@user.sessions.count} Practice Sessions"%></h4>
   </div>
   
   <div class="container user_sessions">
