@@ -1,4 +1,5 @@
 class SessionsController < ApplicationController
+  before_action :authorized
 
   def index
     @sessions = Session.search(params[:search])
