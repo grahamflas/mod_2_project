@@ -2,10 +2,15 @@
 
 <% if @session.errors.any? %>
   <div id="error_explanation">
-    <h2> <%= plur %> </h2>
+
+    <%= "#{pluralize(@session.errors.count, "error")} prevented you from creating this session: "%>
+    
     <ul>
-      <li></li>
+      <% @session.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
     </ul>
+
   </div>
 <% end %>
 

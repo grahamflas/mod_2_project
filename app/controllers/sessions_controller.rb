@@ -1,6 +1,5 @@
 class SessionsController < ApplicationController
   before_action :authorized
-  validates :distance, presence: true
 
   def index
     @sessions = Session.search(params[:search])
@@ -25,9 +24,20 @@ class SessionsController < ApplicationController
   end
 
   def create
-    @session = Session.create(session_params)  ##Add validation to make sure User inputs distance value
-    usersession = UsersSession.create(session_id: @session.id, user_id: session[:user_id])
+    @session = Session.new(session_params)
+
+    if @session.valid?
+      @session.save
+      usersession = UsersSession.create(
+        session_id: @session.id, 
+        user_id: session[:user_id]
+      )
+
     redirect_to session_path(@session)
+
+    else
+      render :new
+    end
   end
 
     
