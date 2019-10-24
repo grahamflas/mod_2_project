@@ -1,6 +1,8 @@
 class User < ApplicationRecord
   has_many :users_sessions
+  has_many :users_events
   has_many :sessions, through: :users_sessions
+  has_many :events, through: :users_events
 
   has_secure_password
 
@@ -55,6 +57,10 @@ class User < ApplicationRecord
 
   def events_eligible
     events = Event.all
-    eligible = events.select{|event| self.total_distance >= event.min_miles_run}
+    eligible = events.select{|event| self.total_distance >= event.min_miles_run && !self.events_registered.include?(event)}
+  end
+
+  def events_registered
+    self.events
   end
 end

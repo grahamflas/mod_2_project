@@ -16,7 +16,7 @@
 <%end%>
 
 
-<% if current_user.events_eligible.include?(@event)%>
+<% if current_user.events_eligible.include?(@event) || current_user.events_registered.include?(@event)%>
     <%if @event.users.include?(current_user)%>
     <%= link_to "Unregister for this Event", unregister_event_path(@event, current_user), method: :delete%>
     <%else%>

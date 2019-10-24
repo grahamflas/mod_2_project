@@ -24,3 +24,8 @@
 <%@events.each do |event|%>
 <li><%= link_to event.name, event_path(event)%></li>
 <%end%>
+
+<h2>Events Registered For: </h2>
+<%@registered.each do |event|%>
+<li><%= link_to event.name, event_path(event)%></li>
+<%end%>
