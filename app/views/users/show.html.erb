@@ -19,3 +19,8 @@
 <%if current_user.id == @user.id%>
   <%= link_to "Create a new session", new_session_path %>
 <%end%>
+
+<h2>Events Eligible For: </h2>
+<%@events.each do |event|%>
+<li><%= link_to event.name, event_path(event)%></li>
+<%end%>

@@ -52,4 +52,9 @@ class User < ApplicationRecord
       formatted_pace = "#{minutes}\'#{seconds}\""
     end
   end
+
+  def events_eligible
+    events = Event.all
+    eligible = events.select{|event| self.total_distance >= event.min_miles_run}
+  end
 end
