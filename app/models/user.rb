@@ -27,7 +27,6 @@ class User < ApplicationRecord
       return User.all
     end
   end
-  
 
   def total_distance
     distances = self.sessions.map{|session| session.distance}
@@ -37,6 +36,17 @@ class User < ApplicationRecord
   def total_time_run
     duration = self.sessions.map{|session| session.duration}
     duration.sum.round(2)
+  end
+
+  def display_time_run
+    if total_time_run >= 60
+      hours = (total_time_run / 60).to_i
+      minutes = ((hours % 1) * 60).to_i
+      
+      "#{hours} hours #{minutes} minutes"
+    else
+      "#{total_time_run.round} minutes"
+    end
   end
 
   ## returns average pace of all sessions minutes per mile
