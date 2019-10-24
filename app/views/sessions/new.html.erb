@@ -3,7 +3,7 @@
 <% if @session.errors.any? %>
   <div id="error_explanation">
 
-    <%= "#{pluralize(@session.errors.count, "error")} prevented you from creating this session: "%>
+    <%= "Oops! #{pluralize(@session.errors.count, "error")} prevented you from creating this session: "%>
     
     <ul>
       <% @session.errors.full_messages.each do |msg| %>
