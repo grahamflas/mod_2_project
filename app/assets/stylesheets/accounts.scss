@@ -1,3 +1,29 @@
 // Place all the styles related to the Accounts controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+html, body {
+  height: 100%;
+}
+
+#login_page {
+  height: 100%;
+  background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7) ), url('https://tribebloom.com/wp-content/uploads/2014/09/runn.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+#login-form {
+  padding: 200px;
+  height: 100%;
+  color: white;
+  z-index: 10;
+  opacity: 1;
+  display: flex;
+  // justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+
+
+

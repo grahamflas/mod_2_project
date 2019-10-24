@@ -1,12 +1,18 @@
-<h1>Login or Sign Up</h1>
+<div id="login_page">
 
-<%= form_tag '/login' do%>
-  <%= label :username, "Username"%>
-  <%= text_field_tag :username %>
-  <%= label :password, "Password" %>
-  <%= password_field_tag :password %>
+  <div id="login-form">
+   <h1>Login or Sign Up</h1>
+    
+    <%= form_tag '/login' do%>
+    <%= label :username, "Username"%>
+    <%= text_field_tag :username %><br><br>
 
-  <%= submit_tag "Login" %>
-<% end %>
-
-<%= link_to "Create an account",  new_user_path%>
+    <%= label :password, "Password" %>
+    <%= password_field_tag :password %><br><br>
+    
+    <%= submit_tag "Login" %> <br><br>
+    <%= link_to "Create an account",  new_user_path%>
+    <% end %>
+  </div>
+  
+</div>
