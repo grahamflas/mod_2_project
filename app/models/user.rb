@@ -40,10 +40,9 @@ class User < ApplicationRecord
 
   def display_time_run
     if total_time_run >= 60
-      hours = (total_time_run / 60).to_i
+      hours = (total_time_run / 60)
       minutes = ((hours % 1) * 60).to_i
-      
-      "#{hours} hours #{minutes} minutes"
+      "#{hours.to_i} hours #{minutes} minutes"
     else
       "#{total_time_run.round} minutes"
     end
