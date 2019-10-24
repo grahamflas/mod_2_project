@@ -5,10 +5,14 @@
 <div class="row">
   <div class="container user_stats">
     <h2>Stats</h2>
-    <h4>Total Distance Run: <%= "#{@user.total_distance} Miles"%></h4>
-    <h4>Total Time Run: <%= @user.display_total_duration%></h4>
-    <h4>Average Pace: <%= @user.average_pace%>/ mile</h4>
-    <h4>Number of Sessions: <%= "#{@user.sessions.count} Practice Sessions"%></h4>
+    <h4>Total Distance Run:</h4>
+    <p><%= "#{@user.total_distance} Miles"%></p>
+    <h4>Total Time Run: </h4>
+    <p><%= @user.display_total_duration%></p>
+    <h4>Average Pace: </h4>
+    <p><%= @user.average_pace%>/ mile</p>
+    <h4>Number of Sessions:</h4>
+    <p><%= "#{@user.sessions.count} Practice Sessions"%></p>
   </div>
   
   <div class="container user_sessions">
@@ -18,7 +22,7 @@
       <% @user.sessions.each do |session| %>
         <div><%= link_to "#{session.start_time.strftime("%A, %B %d, %Y")} beginning at #{session.start_time.strftime("%I:%M%p")}", session_path(session) %> 
         <%if current_user.id == @user.id%>
-          <button type="button" class="btn btn-outline-danger"><%= link_to "Remove this Session from My Sessions", users_session_path(@user, session), method: :delete%></button>
+          <button type="button" class="btn btn-success"><%= link_to "Remove this Session from My Sessions", users_session_path(@user, session), method: :delete%></button>
         <%end%>
         </div>
       <% end %>
@@ -29,8 +33,6 @@
     <%end%>
   </div>
 </div>
-
-
 
 <div class="row">
   <div class="container eligible_events">
