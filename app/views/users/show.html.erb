@@ -22,7 +22,7 @@
       <% @user.sessions.each do |session| %>
         <div><%= link_to "#{session.start_time.strftime("%A, %B %d, %Y")} beginning at #{session.start_time.strftime("%I:%M%p")}", session_path(session) %> 
         <%if current_user.id == @user.id%>
-          <button type="button" class="btn btn-success"><%= link_to "Remove this Session from My Sessions", users_session_path(@user, session), method: :delete%></button>
+          <button type="button" class="btn btn-outline-danger"><%= link_to "Remove this Session from My Sessions", users_session_path(@user, session), method: :delete%></button>
         <%end%>
         </div>
       <% end %>
