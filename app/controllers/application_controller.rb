@@ -4,6 +4,8 @@ class ApplicationController < ActionController::Base
     User.find_by(id: session[:user_id])
   end
 
+  # `!` coerces `current_user` to a boolean (true) and negates it (false)
+  # add the second `!` to make `!!current_user` return true if 
   def logged_in?
     !!current_user
   end
