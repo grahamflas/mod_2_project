@@ -24,6 +24,38 @@ html, body {
   flex-direction: column;
 }
 
+.navbar-nav {
+
+}
+
+// USER SHOW PAGE
+
+.user_show_header {
+  justify-content: center;
+  display: flex;
+}
+.user_stats {
+  border: 1px solid red;
+  justify-content: center;
+  flex-direction: column;
+  display: flex;
+}
+
+.user_sessions {
+  border: 1px solid turquoise;
+
+}
+
+.eligible_events {
+
+}
+
+.registered_events {
+
+}
+
+
+
 
 
 

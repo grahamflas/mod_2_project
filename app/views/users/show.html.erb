@@ -1,32 +1,48 @@
-<h1>Details for <%= @user.full_name %></h1>
+<div class="user_show_header">
+  <h1>Details for <%= @user.full_name %></h1>
+</div>
 
-<h2>Total Distance Run: <%= "#{@user.total_distance} Miles"%></h2>
-<h2>Total Time Run: <%= @user.display_total_duration%></h2>
-<h2>Average Pace: <%= @user.average_pace%>/ mile</h2>
-<h2>Number of Sessions: <%= "#{@user.sessions.count} Practice Sessions"%></h2>
-
-<h2><%= @user.full_name %>'s Sessions</h2>
-
-<ul>
-  <% @user.sessions.each do |session| %>
-    <div><%= link_to "#{session.start_time.strftime("%A, %B %d, %Y")} beginning at #{session.start_time.strftime("%I:%M%p")}", session_path(session) %> 
+<div class="row">
+  <div class="container user_stats">
+    <h2>Total Distance Run: <%= "#{@user.total_distance} Miles"%></h2>
+    <h2>Total Time Run: <%= @user.display_total_duration%></h2>
+    <h2>Average Pace: <%= @user.average_pace%>/ mile</h2>
+    <h2>Number of Sessions: <%= "#{@user.sessions.count} Practice Sessions"%></h2>
+  </div>
+  
+  <div class="container user_sessions">
+    <h2><%= @user.full_name %>'s Sessions</h2>
+    
+    <ul>
+      <% @user.sessions.each do |session| %>
+        <div><%= link_to "#{session.start_time.strftime("%A, %B %d, %Y")} beginning at #{session.start_time.strftime("%I:%M%p")}", session_path(session) %> 
+        <%if current_user.id == @user.id%>
+          <button type="button" class="btn btn-outline-danger"><%= link_to "Remove this Session from My Sessions", users_session_path(@user, session), method: :delete%></button>
+        <%end%>
+        </div>
+      <% end %>
+    </ul>
+  
     <%if current_user.id == @user.id%>
-      <button type="button" class="btn btn-outline-danger"><%= link_to "Remove this Session from My Sessions", users_session_path(@user, session), method: :delete%></button>
-      
+      <%= link_to "Create a new session", new_session_path %>
     <%end%>
-    </div>
-  <% end %>
-</ul>
-<%if current_user.id == @user.id%>
-  <%= link_to "Create a new session", new_session_path %>
-<%end%>
+  </div>
+</div>
 
-<h2>Events Eligible For: </h2>
-<%@events.each do |event|%>
-<li><%= link_to event.name, event_path(event)%></li>
-<%end%>
-
-<h2>Events Registered For: </h2>
-<%@registered.each do |event|%>
-<li><%= link_to event.name, event_path(event)%></li>
-<%end%>
+<div class="row">
+  <div class="container eligible_events">
+    <h2>Events Eligible For: </h2>
+  
+    <%@events.each do |event|%>
+      <li><%= link_to event.name, event_path(event)%></li>
+    <%end%>
+  </div>
+  
+  <div class="container registered_events">
+    <h2>Events Registered For: </h2>
+  
+    <%@registered.each do |event|%>
+      <li><%= link_to event.name, event_path(event)%></li>
+    <%end%>
+  </div>
+</div>
