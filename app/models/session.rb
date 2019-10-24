@@ -1,11 +1,7 @@
 class Session < ApplicationRecord
   has_many :users_sessions
   has_many :users, through: :users_sessions
-
   validates :distance, presence: true, numericality: true
-
-  ##Add validation to make sure User inputs distance value
-
 
   ## returns duration of session in minutes
   def duration
