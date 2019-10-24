@@ -29,22 +29,20 @@ class User < ApplicationRecord
   end
 
   def total_distance
-    distances = self.sessions.map{|session| session.distance}
-    distances.sum.round(2)
+    self.sessions.map{|session| session.distance}.sum.round(2)
   end
 
-  def total_time_run
-    duration = self.sessions.map{|session| session.duration}
-    duration.sum.round(2)
+  def total_duration
+    self.sessions.map{|session| session.duration}.sum.round(2)
   end
 
-  def display_time_run
-    if total_time_run >= 60
-      hours = (total_time_run / 60)
+  def display_total_duration
+    if total_duration >= 60
+      hours = (total_duration / 60)
       minutes = ((hours % 1) * 60).to_i
       "#{hours.to_i} hours #{minutes} minutes"
     else
-      "#{total_time_run.round} minutes"
+      "#{total_duration.to_i} minutes"
     end
   end
 
@@ -53,7 +51,7 @@ class User < ApplicationRecord
     if self.total_distance == 0
       "You have no sessions yet"
     else
-      raw_pace = self.total_time_run / self.total_distance
+      raw_pace = self.total_duration / self.total_distance
 
       minutes = raw_pace.to_i
       seconds = ((raw_pace % 1) *60).to_i

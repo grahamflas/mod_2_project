@@ -5,7 +5,7 @@
 <h2>Distance: <%= @session.distance %> miles</h2>
 <h2>Start Time: <%= @session.start_time.strftime("%I:%M%p") %></h2>
 <h2>End Time: <%= @session.end_time.strftime("%I:%M%p") %></h2>
-<h2>Total Duration: <%= @session.duration %></h2>
+<h2>Total Duration: <%= @session.display_duration %></h2>
 <h2>Pace: <%= @session.pace %> per mile</h2>
 <%=link_to "Add Runners to this Session", pick_users_path(@session)%> <%#add css to make this a button later%>
 
