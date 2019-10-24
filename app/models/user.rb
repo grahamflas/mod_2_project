@@ -2,9 +2,11 @@ class User < ApplicationRecord
   has_many :users_sessions
   has_many :sessions, through: :users_sessions
 
+  has_secure_password
+
 
   def full_name
-    self.first_name + " " + self.last_name
+    "#{self.first_name} #{self.last_name}"
   end
 
   def self.search(search)
@@ -19,7 +21,7 @@ class User < ApplicationRecord
         last = names[1].capitalize
         user = User.where(first_name: names[0], last_name: last)
       elsif search.keys.first == "username"
-        user = User.where(username: clean_name)
+        user = User.where(username: search[:username])
       end
     else
       return User.all
