@@ -1,5 +1,14 @@
 <h1>Create a new session</h1>
 
+<% if @session.errors.any? %>
+  <div id="error_explanation">
+    <h2> <%= plur %> </h2>
+    <ul>
+      <li></li>
+    </ul>
+  </div>
+<% end %>
+
 <%= form_for @session do |f| %>
   <%= f.label :start_time %>
   <%= f.datetime_select :start_time %>

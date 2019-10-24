@@ -1,5 +1,6 @@
 class SessionsController < ApplicationController
   before_action :authorized
+  validates :distance, presence: true
 
   def index
     @sessions = Session.search(params[:search])
