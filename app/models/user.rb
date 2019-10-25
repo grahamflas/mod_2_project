@@ -70,4 +70,13 @@ class User < ApplicationRecord
   def events_registered
     self.events
   end
+
+  def friends
+    @sessions = self.sessions
+    friends = []
+    @sessions.each{|session|
+      session.users.each {|user| friends << user}}
+    friends.delete(self)
+    friends.uniq
+  end
 end
