@@ -14,6 +14,7 @@
     <h4>Number of Sessions:</h4>
     <p><%= "#{@user.sessions.count} Practice Sessions"%></p>
   </div>
+
   
   <div class="container user_sessions">
     <h2><%= @user.full_name %>'s Sessions</h2>
@@ -33,6 +34,15 @@
     <%end%>
   </div>
 </div>
+
+<div class="row">
+    <div class="container friends">
+    <h2>Here are your Run Buddies!</h2>
+    <% @friends.each do |friend|%>
+    <li><%= link_to friend.full_name, user_path(friend)%></li>
+    <%end%>
+  </div>
+  </div>
 
 <div class="row">
   <div class="container eligible_events">
