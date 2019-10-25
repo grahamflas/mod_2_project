@@ -5,7 +5,7 @@ Event.destroy_all
 UsersEvent.destroy_all
 
 # DELETE
-User.create(first_name: "", last_name: "", username: "", password: "1111", password_confirmation: "1111")
+
 
 adam = User.create(first_name: "Adam", last_name: "Finch", username: "afinch", password: "1111", password_confirmation: "1111")
 aicha = User.create(first_name: "Aicha", last_name: "Diallo", username: "adiallo", password: "1111", password_confirmation: "1111")
@@ -48,4 +48,3 @@ valentines_fun_run = Event.create(name: 'Valentine\'s Day Fun Run', date: 'Febru
 st_patricks_day = Event.create(name: 'St. Patrick\'s Day 5K', date: 'March 17, 2020', location: 'New York, NY', distance: 3.12, min_miles_run: 3, min_num_of_sessions: 3)
 april_fools_10_miler = Event.create(name: 'April Fool\'s Day 10 Miler', date: 'April 1, 2020', location: 'Mars', distance: 10, min_miles_run: 5, min_num_of_sessions: 5)
 boston_marathon = Event.create(name: 'Boston Marathon', date: 'May 1, 2020', location: 'Boston, MA', distance: 26.2, min_miles_run: 50, min_num_of_sessions: 30)
-
