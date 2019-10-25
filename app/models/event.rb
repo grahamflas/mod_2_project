@@ -10,6 +10,8 @@ class Event < ApplicationRecord
                 events = Event.where("distance <= ?", search.values.first)
             elsif search.keys.first == "min_distance"
                 events = Event.where("distance >= ?", search.values.first)
+            elsif search.keys.first == "name"
+                events = Event.where(name: search[:name])
 
             end
         else
