@@ -16,8 +16,5 @@ class Event < ApplicationRecord
         else
           return Event.all
         end
-      end
-
-
-
+    end
 end
